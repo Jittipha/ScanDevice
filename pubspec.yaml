@@ -37,6 +37,7 @@ dependencies:
   flutter_blue: ^0.8.0
   socket_io_client: ^1.0.2
   http: ^0.13.4
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
