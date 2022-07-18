@@ -1,5 +1,6 @@
 import 'package:bluetooth/Connecting.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,28 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Scanning(),
+      home:  FutureBuilder(
+        future: FlutterBluetoothSerial.instance.requestEnable(),
+        builder: (context, future) {
+          if (future.connectionState == ConnectionState.waiting) {
+            return Scaffold(
+              body: Container(
+                height: double.infinity,
+                child: const Center(
+                  child:  Icon(
+                    Icons.bluetooth_disabled,
+                    size: 200.0,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            );
+          } else {
+            return Scanning();
+          }
+        },
+        // child: MyHomePage(title: 'Flutter Demo Home Page'),
+      ),
     );
   }
 }

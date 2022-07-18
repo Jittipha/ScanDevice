@@ -62,7 +62,7 @@ class _detailState extends State<detail> {
                   // color: const Color.fromARGB(250, 255, 255, 255),
                   // ),
                   width: 300,
-                  height: 400,
+                  height: 600,
                   padding: const EdgeInsets.fromLTRB(10, 20, 10, 10),
                   child: ListView(children: <Widget>[
                     Text(
